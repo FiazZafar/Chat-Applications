@@ -28,6 +28,7 @@ import java.util.List;
 public class ChatsMVVM extends ViewModel {
     UserInterFace userInterFace = new UsersFB();
     ChatsInterface chatsInterface = new ChatsListFB();
+
     InboxInterface inboxInterface = new InboxListFB();
     SignupInterface signupInterface = new SignupFB();
 
