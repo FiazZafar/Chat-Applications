@@ -27,6 +27,9 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginVertical="8dp"
+                android:src="@drawable/account_circle_24px"
+                app:civ_circle_background_color="@color/white"
+                app:tint="@color/white"
                 android:background="@android:color/transparent" />
             <View
                 android:id="@+id/onlineAlert"

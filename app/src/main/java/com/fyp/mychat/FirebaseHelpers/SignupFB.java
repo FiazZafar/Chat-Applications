@@ -28,13 +28,21 @@ public class SignupFB implements SignupInterface {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     result.onComplete(true);
+                }else {
+                    result.onComplete(false);
                 }
             }
         });
     }
     @Override
-    public void loginUser() {
-
+    public void loginUser(String email, String passwords,FirebaseCallbacks<Boolean> result) {
+        mAuth.signInWithEmailAndPassword(email,passwords).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                result.onComplete(true);
+            }else {
+                result.onComplete(false);
+            }
+        });
     }
 
     @Override

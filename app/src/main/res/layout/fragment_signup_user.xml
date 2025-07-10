@@ -108,6 +108,7 @@
                 android:hint="@string/email_hint"
                 android:background="@drawable/inputs_bg"
                 android:layout_marginTop="5dp"
+                android:importantForAutofill="no"
                 android:inputType="textEmailSubject"
                 android:paddingStart="16dp"
                 android:textSize="16sp"
@@ -128,20 +129,36 @@
                 app:layout_constraintEnd_toEndOf="@+id/emailEdt"
                 app:layout_constraintTop_toBottomOf="@+id/emailEdt"/>
 
-            <EditText
-                android:id="@+id/passwordEdt"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/passwordhint"
-                android:inputType="textEmailSubject"
-                android:layout_marginTop="5dp"
-                android:paddingStart="16dp"
                 android:background="@drawable/inputs_bg"
-                android:textSize="16sp"
+                android:id="@+id/passwordLinear"
                 app:layout_constraintEnd_toEndOf="@+id/passwordH"
                 app:layout_constraintStart_toStartOf="@+id/passwordH"
                 app:layout_constraintTop_toBottomOf="@+id/passwordH"
+                android:orientation="horizontal">
+            <EditText
+                android:id="@+id/passwordEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:hint="@string/passwordhint"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="5dp"
+                android:paddingStart="16dp"
+                android:layout_weight="1"
+                android:inputType="textPassword"
+                android:textSize="16sp"
                 tools:ignore="TextFields" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/visibility_24px"
+                    android:layout_gravity="end"
+                    android:paddingEnd="16dp"
+                    android:id="@+id/eyeVisiblePasBTn"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/confirmPasswordH"
@@ -152,24 +169,41 @@
                 android:layout_marginTop="5dp"
                 android:textStyle="bold|italic"
                 android:textColor="@color/textColor"
-                app:layout_constraintStart_toStartOf="@+id/passwordEdt"
-                app:layout_constraintEnd_toEndOf="@+id/passwordEdt"
-                app:layout_constraintTop_toBottomOf="@+id/passwordEdt"/>
+                app:layout_constraintStart_toStartOf="@+id/passwordLinear"
+                app:layout_constraintEnd_toEndOf="@+id/passwordLinear"
+                app:layout_constraintTop_toBottomOf="@+id/passwordLinear"/>
 
-            <EditText
-                android:id="@+id/confirmPasswordEdt"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/confirmPassHint"
-                android:inputType="textEmailSubject"
-                android:paddingStart="16dp"
-                android:layout_marginTop="5dp"
                 android:background="@drawable/inputs_bg"
-                android:textSize="16sp"
+                android:id="@+id/confirmPasswordLinear"
                 app:layout_constraintEnd_toEndOf="@+id/confirmPasswordH"
                 app:layout_constraintStart_toStartOf="@+id/confirmPasswordH"
                 app:layout_constraintTop_toBottomOf="@+id/confirmPasswordH"
-                tools:ignore="TextFields" />
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/confirmPasswordEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/confirmPassHint"
+                    android:importantForAutofill="no"
+
+                    android:paddingStart="16dp"
+
+                    android:inputType="textPassword"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:textSize="16sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/visibility_24px"
+                    android:layout_gravity="end"
+                    android:paddingEnd="16dp"
+                    android:id="@+id/eyeVisibleconfirmBTn"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/randomTxt"
@@ -192,7 +226,7 @@
                 android:textStyle="normal|bold"
                 android:textColor="@color/alertColor"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordEdt"/>
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLinear"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/nextBtn"

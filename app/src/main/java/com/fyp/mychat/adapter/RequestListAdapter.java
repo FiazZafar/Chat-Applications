@@ -65,7 +65,7 @@ public class RequestListAdapter extends RecyclerView.Adapter<RequestListAdapter.
             userInterFace.fetchUserName(secondUserId,result -> {
                 if (result != null){
                     holder.userName.setText(result.getUserName());
-                    Glide.with(context).load(result.getImgUrl()).into(holder.profilePic);
+                    Glide.with(context).load(result.getImgUrl()).error(R.drawable.account_circle_24px).into(holder.profilePic);
                 }
             });
 

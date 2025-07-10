@@ -64,14 +64,15 @@ public class ProfileFragment extends Fragment {
     private void setupUserProfile() {
         SharedPreferences detailPrefs = getContext().getSharedPreferences("UserDetail", MODE_PRIVATE);
         editor = detailPrefs.edit();
-        String image = detailPrefs.getString("userProfile","");
+//        String image = detailPrefs.getString("userProfile","");
 
 
-        Glide.with(getContext()).load(image).into(binding.userProfile);
         profileMVVM.getUserDetail().observe(getViewLifecycleOwner(),userDetail -> {
             binding.userName.setText(userDetail.getUserName());
             binding.userEmail.setText(userDetail.getUserEmail());
-            Glide.with(getContext()).load(userDetail.getImgUrl()).placeholder(R.drawable.placeholder).into(binding.userProfile);
+            Glide.with(getContext()).load(userDetail.getImgUrl())
+                    .placeholder(R.drawable.account_circle_24px)
+                    .into(binding.userProfile);
         });
     }
     private void initListeners() {

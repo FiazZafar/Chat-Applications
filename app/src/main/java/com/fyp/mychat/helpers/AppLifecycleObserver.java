@@ -26,7 +26,13 @@ public class AppLifecycleObserver implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onEnterForeground(){
         homeMVVM.setMyOnlineStatus(true);
-        Log.d("AppLifecycleObserver", "onEnterForeground: AppLifecycleObserver" + hasSentOnlineNotification);
+
+       /*
+
+       Commenting this all because i think its very disturbing to have
+         notification on every online friend
+
+       Log.d("AppLifecycleObserver", "onEnterForeground: AppLifecycleObserver" + hasSentOnlineNotification);
 
         if (launchedFromNotification){
             return;
@@ -40,11 +46,11 @@ public class AppLifecycleObserver implements LifecycleObserver {
                     new Handler(Looper.getMainLooper()).post(() -> homeMVVM.setSendNotification(accessToken));
                 }
             }).start();
-
+*/
         }
-    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onEnterBackground(){
         homeMVVM.setMyOnlineStatus(false);
-    }
+        }
 }

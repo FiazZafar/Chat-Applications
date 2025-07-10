@@ -33,7 +33,6 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    HomeMVVM homeMVVM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
 
             if (user != null) {
-                Log.d("AUTH_CHECK", "User already logged in: " + user.getEmail());
-                Toast.makeText(this, "Welcome!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, HomeActivity.class));
                 finish();
                 return;
             }
-
-            Log.d("AUTH_CHECK", "User is null. Signing in required.");
             loadFragment(new SignupUser(), 1);
             binding.constraint.setVisibility(View.GONE);
 
@@ -71,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUpUserPrefs() {
         SharedPreferences prefs = getSharedPreferences("AppTheme", MODE_PRIVATE);
         boolean isDark = prefs.getBoolean("ThemeSetting",false);
-        boolean isNotification = prefs.getBoolean("notifications_enabled",false);
+        boolean isNotification = prefs.getBoolean("notifications_enabled",true);
 
         setNotificationSetting(isNotification);
 
@@ -84,22 +79,12 @@ public class MainActivity extends AppCompatActivity {
         if (isChecked){
             FirebaseMessaging.getInstance().setAutoInitEnabled(true);
 
-            FirebaseMessaging.getInstance().subscribeToTopic("general").addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(MainActivity.this, "Notify Enabled...", Toast.LENGTH_SHORT).show();
-                }
-            });
+            FirebaseMessaging.getInstance().subscribeToTopic("general")
+                    .addOnCompleteListener(task -> {});
         }else {
-
             FirebaseMessaging.getInstance().setAutoInitEnabled(false);
-
-            FirebaseMessaging.getInstance().subscribeToTopic("general").addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(MainActivity.this, "Notify Disabled...", Toast.LENGTH_SHORT).show();
-                }
-            });
+            FirebaseMessaging.getInstance().subscribeToTopic("general")
+                    .addOnCompleteListener(task -> {});
         }
     }
 

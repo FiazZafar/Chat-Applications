@@ -80,10 +80,10 @@ public class HomeActivity extends AppCompatActivity {
 
         setToolbar("QuickChat", "Chat's");
 
-        homeMVVM.getSendNotification().observe(this,onNotify -> {
-        if (onNotify) Toast.makeText(this, "User is notified", Toast.LENGTH_SHORT).show();
-
-        });
+//        homeMVVM.getSendNotification().observe(this,onNotify -> {
+//        if (onNotify) Toast.makeText(this, "User is notified", Toast.LENGTH_SHORT).show();
+//
+//        });
 
         try {
             MediaManager.get();
@@ -200,9 +200,9 @@ public class HomeActivity extends AppCompatActivity {
         return newMode;
     }
     private Boolean setupNotification() {
-        Boolean notificationEnabled = appPref.getBoolean("Notification",false);
+        Boolean notificationEnabled = appPref.getBoolean("notifications_enabled",true);
         if (notificationEnabled){
-            editor.putBoolean("Notification",false);
+            editor.putBoolean("notifications_enabled",false);
             editor.apply();
             FirebaseMessaging.getInstance().setAutoInitEnabled(false);
             FirebaseMessaging.getInstance().subscribeToTopic("general")
@@ -210,7 +210,7 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(this, "Notification Disabled", Toast.LENGTH_SHORT).show();
             });
         }else {
-            editor.putBoolean("Notification",true);
+            editor.putBoolean("notifications_enabled",true);
             editor.apply();
             FirebaseMessaging.getInstance().setAutoInitEnabled(true);
             FirebaseMessaging.getInstance().subscribeToTopic("general")

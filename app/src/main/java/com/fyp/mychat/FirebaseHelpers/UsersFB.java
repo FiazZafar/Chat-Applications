@@ -63,18 +63,13 @@ public class UsersFB implements UserInterFace {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    Log.e("UserFB", "snapshot  exists");
                     for (DataSnapshot mySnapshot : snapshot.getChildren()) {
                         UserModel userModel = mySnapshot.getValue(UserModel.class);
                         if (userModel != null && userModel.getUserName() != null &&
                                 userModel.getuId() != null && !userModel.getuId().trim().isEmpty()
                         && !userId.equals(userModel.getuId().trim())) {
-                            Log.e("UserFB", "MyId: " + userModel.getuId());
-                            Log.e("UserFB", "UserId: " + userId);
-
                             userList.add(userModel);
                         } else {
-                            Log.e("UserFB", "Skipping invalid user: " + mySnapshot.getKey());
                         }
                     }
                     result.onComplete(userList);

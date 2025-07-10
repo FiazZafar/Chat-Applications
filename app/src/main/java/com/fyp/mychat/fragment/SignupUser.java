@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.InputType;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +37,7 @@ public class SignupUser extends Fragment {
         binding = FragmentSignupUserBinding.inflate(inflater,container,false);
         mAuth = FirebaseAuth.getInstance();
 
-        userImage = "https://surl.lt/vzacfw";
+        userImage = getString(R.string.placeholder_image) ;
         signupMVVM = new ViewModelProvider(this).get(SignupMVVM.class);
 
         binding.moveToLoginBtn.setOnClickListener(view -> getParentFragmentManager().
@@ -44,19 +45,66 @@ public class SignupUser extends Fragment {
                 replace(R.id.auth_container,new LoginUser()).
                 addToBackStack(null).
                 commit());
+
+        binding.eyeVisiblePasBTn.setOnClickListener(view -> {
+            if (binding.passwordEdt.getInputType() == (InputType.TYPE_CLASS_TEXT
+                    | InputType.TYPE_TEXT_VARIATION_PASSWORD)){
+                if (!binding.passwordEdt.getText().toString().equals("")){
+                    binding.passwordEdt.setInputType(InputType.TYPE_CLASS_TEXT
+                            |InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    binding.eyeVisiblePasBTn.setImageResource(R.drawable.visibility_off_24px);
+                }
+            }else {
+                if (!binding.passwordEdt.getText().toString().equals("")) {
+                    binding.passwordEdt.setInputType(InputType.TYPE_CLASS_TEXT|
+                            InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    binding.eyeVisiblePasBTn.setImageResource(R.drawable.visibility_24px);
+                }
+            }
+//            binding.passwordEdt.setSelection(binding.passwordEdt.length());
+        });
+
+        binding.eyeVisibleconfirmBTn.setOnClickListener(view -> {
+            if (binding.confirmPasswordEdt.getInputType() == (InputType.TYPE_CLASS_TEXT
+                    | InputType.TYPE_TEXT_VARIATION_PASSWORD)){
+                if (!binding.confirmPasswordEdt.getText().toString().equals("")){
+                    binding.confirmPasswordEdt.setInputType(InputType.TYPE_CLASS_TEXT
+                            |InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    binding.eyeVisibleconfirmBTn.setImageResource(R.drawable.visibility_off_24px);
+                }
+            }else {
+                if (!binding.confirmPasswordEdt.getText().toString().equals("")){
+                    binding.confirmPasswordEdt.setInputType(InputType.TYPE_CLASS_TEXT|
+                            InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    binding.eyeVisibleconfirmBTn.setImageResource(R.drawable.visibility_24px);
+                }
+            }
+//            binding.confirmPasswordEdt.setSelection(binding.passwordEdt.length());
+        });
+
         binding.nextBtn.setOnClickListener(view -> {
             // Get all input values
             userName = binding.firstNameEdt.getText().toString().trim();
             userEmail = binding.emailEdt.getText().toString().trim();
             passwords = binding.passwordEdt.getText().toString().trim();
             confirmPass = binding.confirmPasswordEdt.getText().toString().trim();
+            Boolean isValid = validateInputs();
 
             setErrorsOnViews();
-            signupMVVM.registerUser(userName,userEmail,passwords,userImage)
-                    .observe(getViewLifecycleOwner(),isDone -> {
-                        startActivity(new Intent(getContext(),HomeActivity.class));
-                        Toast.makeText(getContext(), "Signed Successfully...", Toast.LENGTH_SHORT).show();
-                    });
+            if (isValid){
+                signupMVVM.registerUser(userName,userEmail,passwords,userImage)
+                        .observe(getViewLifecycleOwner(),isDone -> {
+                            if (isDone){
+                                startActivity(new Intent(getContext(),HomeActivity.class));
+                                Toast.makeText(getContext(), "Signed Successfully...", Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(getContext(), "User already exists...", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }else {
+                Toast.makeText(getContext(), "empty fields error", Toast.LENGTH_SHORT).show();
+            }
+
         });
 
         return  binding.getRoot();
@@ -102,6 +150,7 @@ public class SignupUser extends Fragment {
             binding.confirmPasswordEdt.requestFocus();
             return false;
         }
+
         return true;
     }
     private void setErrorsOnViews() {

@@ -1,5 +1,7 @@
 package com.fyp.mychat.model;
 
+import com.fyp.mychat.helpers.StatusEnum;
+
 public class UserModel {
     String uId;
     String userName;
@@ -8,13 +10,16 @@ public class UserModel {
     Boolean online;
     String imgUrl;
     String userEmail;
+
+    StatusEnum friendShipStatus;
     public UserModel( String uId,
                       String uName,
                       String userEmail,
                       String imgUrl,
                       Long lastSeen,
                       String status,
-                      Boolean online) {
+                      Boolean online,
+                      StatusEnum friendShipStatus) {
         this.userName = uName;
         this.uId = uId;
         this.userEmail = userEmail;
@@ -22,6 +27,7 @@ public class UserModel {
         this.lastSeen = lastSeen;
         this.status = status;
         this.online = online;
+        this.friendShipStatus = friendShipStatus;
     }
 
     public UserModel(String uName, String imgUrl, Boolean onlineStatus) {
@@ -30,6 +36,14 @@ public class UserModel {
         this.online = onlineStatus;
     }
     public UserModel() {
+    }
+
+    public StatusEnum getFriendShipStatus() {
+        return friendShipStatus;
+    }
+
+    public void setFriendShipStatus(StatusEnum friendShipStatus) {
+        this.friendShipStatus = friendShipStatus;
     }
 
     public String getuId() {

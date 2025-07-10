@@ -62,7 +62,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Vi
                 if (userDetail != null){
                     Log.d("UserName", "onBindViewHolder: " + userDetail);
                     holder.userName.setText(userDetail.getUserName());
-                    Glide.with(context).load(userDetail.getImgUrl()).into(holder.profilePic);
+                    Glide.with(context).load(userDetail.getImgUrl()).error(R.drawable.account_circle_24px).into(holder.profilePic);
                 }
             });
             holder.chatBtn.setOnClickListener(view -> {

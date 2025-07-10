@@ -67,7 +67,7 @@ public class InboxListAdapter extends RecyclerView.Adapter<InboxListAdapter.View
                     if (fragment.isAdded() && fragment.getContext() != null) {
                         Log.d("InboxListAdapter", "onBindViewHolder: image is " + userDetail.getImgUrl());
                         Glide.with(fragment).load(userDetail.getImgUrl())
-                                .error(R.drawable.chat_error_24px).into(holder.profilePic);
+                                .error(R.drawable.account_circle_24px).into(holder.profilePic);
                     }
                 }
             });

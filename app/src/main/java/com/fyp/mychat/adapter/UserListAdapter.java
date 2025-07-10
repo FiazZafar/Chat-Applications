@@ -51,37 +51,25 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull UserListAdapter.ViewHolder holder, int position) {
         UserModel currentUser = usersList.get(position);
-        holder.userEmail.setText(currentUser.getUserEmail());
 
+        holder.userEmail.setText(currentUser.getUserEmail());
+        holder.userName.setText(currentUser.getUserName());
+        if (fragment.isAdded() && fragment.getContext() != null) {
+            Glide.with(fragment).load(currentUser.getImgUrl())
+                    .error(R.drawable.account_circle_24px).into(holder.profilePic);
+        }
+
+        if (currentUser.getFriendShipStatus().equals(StatusEnum.Pending)
+                && currentUser.getFriendShipStatus() !=null){
         String senderId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String receiverId = currentUser.getuId();
 
-            userInterFace.fetchUserName(receiverId,result -> {
-                holder.userName.setText(result.getUserName());
-                if (fragment.isAdded() && fragment.getContext() != null) {
-                    Glide.with(fragment).load(currentUser.getImgUrl())
-                            .error(R.drawable.chat_error_24px).into(holder.profilePic);
-                }
-            });
-
-        int result = senderId.compareTo(receiverId);
-        String requestId;
-        if (result < 0 || result == 0){
-            requestId = senderId + "_" + receiverId;
-        }else {
-            requestId = receiverId + "_" + senderId;
-        }
-
-        // Don't display current logged-in user
         if (receiverId.equals(senderId)) {
             holder.itemView.setVisibility(View.GONE);
             holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
             return;
         }
-
-
         holder.connectBtn.setOnClickListener(view -> {
-
             if (holder.connectBtn.getText().toString().equalsIgnoreCase("Connect")) {
                 RequestModel request = new RequestModel(receiverId,senderId , System.currentTimeMillis(), StatusEnum.Pending);
                 friendsManagerInterface.addRequest(request,  result1 -> {
@@ -93,7 +81,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
                     }
                 });
             }else {
-                friendsManagerInterface.deleteRequest(senderId,requestId, result2 -> {
+                friendsManagerInterface.deleteRequest(senderId,receiverId, result2 -> {
                     if (result2) {
                         holder.connectBtn.setText("Connect");
                     } else {
@@ -103,6 +91,9 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
 
             }
         });
+        }else {
+            holder.connectBtn.setVisibility(View.GONE);
+        }
     }
 
     private void sendRequest(String receiverId) {
