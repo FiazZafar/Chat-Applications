@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingEnd="16dp"
+    android:orientation="vertical"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/AppLogo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/legal_app"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbarLinear" />
+    <LinearLayout
+        android:id="@+id/toolbarLinear"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/more_list_btn"
+        app:layout_constraintStart_toEndOf="@+id/AppLogo"
+        >
+
+        <TextView
+            android:id="@+id/action_bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QuickChat"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/action_bar_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dp"
+            android:text="Chat's"
+            android:textAlignment="textStart"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+    <View
+        android:id="@+id/alertSignal"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:gravity="center"
+        android:background="@drawable/message_counter_bg"
+        app:layout_constraintBottom_toTopOf="@+id/more_list_btn"
+        app:layout_constraintTop_toTopOf="@+id/more_list_btn"
+        app:layout_constraintEnd_toEndOf="@+id/more_list_btn"
+        />
+    <ImageView
+        android:id="@+id/more_list_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/more_vert_24px"
+        app:tint="@color/iconColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

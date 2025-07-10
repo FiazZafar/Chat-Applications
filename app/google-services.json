@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "418170673576",
+    "project_id": "messenger-lite-f51d4",
+    "storage_bucket": "messenger-lite-f51d4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418170673576:android:5a74e6aea1fc8fc4f0a59d",
+        "android_client_info": {
+          "package_name": "com.fyp.mychat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGCH5JwZX1C89s6XwBQn6SX-mzttvdVUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary_color">#393E46</color>  <!-- Dark Blue (Primary Brand) -->
+    <color name="primary_light">#44484E</color>  <!-- Light Blue (Card Background) -->
+    <color name="primary_dark">#222831</color>   <!-- Darker Blue (Optional) -->
+
+    <!-- Secondary Colors -->
+    <color name="secondary_color">#249288</color>
+    <color name="secondary_light">#E1F0F7</color>
+
+
+
+    <color name="white">#000000</color>
+    <color name="black">#FFFFFF</color>
+
+    <color name="backgroundColor">#222831</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="alertColor">#F44336</color>
+
+    <color name="topBarColor">#393E46</color>
+    <color name="bottomBarColor">#393E46</color>
+
+    <color name="itemColor">#393E46</color>
+    <color name="buttonsColor">#222831</color>
+    <color name="iconColor">#FFFF</color>
+</resources>

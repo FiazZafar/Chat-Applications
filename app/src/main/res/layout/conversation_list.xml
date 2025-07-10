@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="16dp">
+
+        <LinearLayout
+            android:id="@+id/recieverId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/receiver_bg"
+            android:layout_marginVertical="8dp"
+            android:paddingVertical="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/secondUserMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="250dp"
+                android:textSize="16sp"
+                android:textColor="@color/textColor"
+                android:textIsSelectable="true"
+                android:text="Hello how are you what's going on"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_gravity="end|bottom"
+                >
+
+                <TextView
+                    android:id="@+id/message_recieved_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2:52 PM"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/textColor"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/senderId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sender_bg"
+            android:layout_gravity="end"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="5dp"
+            android:layout_marginVertical="8dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/firstUserMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="250dp"
+                android:textSize="16sp"
+                android:textColor="@color/textColor"
+                android:text="Hello how are you,what's going on"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_gravity="end|bottom"
+                >
+
+                <TextView
+                    android:id="@+id/message_sent_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2:52 PM"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/textColor"
+                    />
+                <ImageView
+                    android:id="@+id/message_sent_indication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/check_24px"
+                    android:paddingStart="5dp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+</LinearLayout>

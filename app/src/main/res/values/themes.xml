@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyChat" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="android:statusBarColor">@color/primary_color</item>
+        <item name="android:navigationBarColor">@color/bottomBarColor</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@color/white</item>
+        <item name="animateNavigationIcon">true</item>
+
+        <item name="android:forceDarkAllowed">true</item>
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/textColor</item>
+
+
+        <item name="colorSecondary">@color/secondary_color</item>
+        <item name="colorSecondaryVariant">@color/secondary_light</item>
+        <item name="colorOnSecondary">@color/textColor</item>
+
+    </style>
+
+    <style name="Theme.MyChat" parent="Base.Theme.MyChat" />
+</resources>

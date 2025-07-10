@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary_color">#029E91</color>  <!-- Dark Blue (Primary Brand) -->
+    <color name="primary_light">#029E91</color>  <!-- Light Blue (Card Background) -->
+    <color name="primary_dark">#016A61</color>   <!-- Darker Blue (Optional) -->
+
+    <color name="shimmerCardBg">#ABA8A8</color>
+    <color name="shimmeritemBg">#F5F5F5</color>
+    <!-- Secondary Colors -->
+    <color name="secondary_color">#249288</color>
+    <color name="secondary_light">#E1F0F7</color>
+
+    <color name="sendColor">#018075</color>
+    <color name="receiveColor">#00BCD4</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="backgroundColor">#F5F5F5</color>
+    <color name="textColor">#000000</color>
+    <color name="alertColor">#F44336</color>
+
+    <color name="topBarColor">#029E91</color>
+    <color name="bottomBarColor">#029E91</color>
+
+    <color name="itemColor">#FFFFFF</color>
+    <color name="buttonsColor">#00BCD4</color>
+    <color name="iconColor">#000000</color>
+</resources>
