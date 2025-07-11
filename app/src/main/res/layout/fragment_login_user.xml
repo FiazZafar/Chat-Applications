@@ -18,7 +18,7 @@
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
         <TextView
             android:id="@+id/app_name"
             android:layout_width="0dp"
@@ -111,7 +111,6 @@
                     android:layout_height="match_parent"
                     android:hint="@string/passwordhint"
                     android:background="@android:color/transparent"
-                    android:layout_marginTop="5dp"
                     android:paddingStart="16dp"
                     android:importantForAutofill="no"
                     android:layout_weight="1"
