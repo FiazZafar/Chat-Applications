@@ -53,7 +53,6 @@ public class InboxMVVM extends ViewModel {
     }
 
     public void setInboxList() {
-        Log.d("InboxMVVM", "setInboxList: started");
 
         String userId = FirebaseAuth.getInstance().getUid();
 
@@ -65,7 +64,6 @@ public class InboxMVVM extends ViewModel {
 
             if (friendIdList.isEmpty()) {
                 inboxList.setValue(allInboxes);
-                Log.d("InboxMVVM", "Friend list is empty, inbox cleared.");
                 return;
             }
 
@@ -75,7 +73,6 @@ public class InboxMVVM extends ViewModel {
 
                     synchronized (uniqueInboxKeys) {
                         if (uniqueInboxKeys.contains(key)) {
-                            Log.d("InboxMVVM", "Duplicate inbox skipped for: " + key);
                             if (counter.decrementAndGet() == 0) {
                                 inboxList.setValue(new ArrayList<>(allInboxes));
                             }
@@ -86,13 +83,11 @@ public class InboxMVVM extends ViewModel {
                     }
 
                     fetchFriendsStatus(inbox.getSecondUserId(), onStatus -> {
-                        Log.d("InboxMVVM", "Online status for " + inbox.getSecondUserId() + " is " + onStatus);
                         inbox.setOnlineStatus(onStatus);
                         allInboxes.add(inbox);
 
                         if (counter.decrementAndGet() == 0) {
                             inboxList.setValue(new ArrayList<>(allInboxes));
-                            Log.d("InboxMVVM", "Final inbox list updated. Size: " + allInboxes.size());
                         }
                     });
                 });

@@ -141,11 +141,10 @@
             <EditText
                 android:id="@+id/passwordEdt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:importantForAutofill="no"
                 android:hint="@string/passwordhint"
                 android:background="@android:color/transparent"
-                android:layout_marginTop="5dp"
                 android:paddingStart="16dp"
                 android:layout_weight="1"
                 android:inputType="textPassword"
@@ -189,9 +188,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/confirmPassHint"
                     android:importantForAutofill="no"
-
                     android:paddingStart="16dp"
-
                     android:inputType="textPassword"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
