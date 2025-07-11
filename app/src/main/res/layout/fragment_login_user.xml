@@ -38,6 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Welcome back!\nLet’s get you signed in."
+            tools:ignore="HardcodedText"
             android:textAlignment="textStart"
             android:lineSpacingExtra="2dp"
             android:layout_marginTop="16dp"
@@ -74,16 +75,20 @@
                 android:id="@+id/emailEdt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_hint"
-                android:inputType="textEmailSubject"
-                android:importantForAutofill="no"
-                android:background="@drawable/inputs_bg"
-                android:paddingStart="16dp"
-                android:textSize="16sp"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/inputs_bg"
+                android:hint="@string/email_hint"
+                android:importantForAutofill="no"
+                android:inputType="textEmailSubject"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="4dp"
+                android:textColorHint="#263238"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/emailH"
                 app:layout_constraintStart_toStartOf="@+id/emailH"
-                app:layout_constraintTop_toBottomOf="@+id/emailH" />
+                app:layout_constraintTop_toBottomOf="@+id/emailH"
+                tools:ignore="VisualLintTextFieldSize" />
             <TextView
                 android:id="@+id/passwordH"
                 android:layout_width="0dp"
@@ -105,25 +110,30 @@
                 app:layout_constraintStart_toStartOf="@+id/passwordH"
                 app:layout_constraintTop_toBottomOf="@+id/passwordH"
                 android:orientation="horizontal">
+
                 <EditText
                     android:id="@+id/passwordEdt"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:hint="@string/passwordhint"
-                    android:background="@android:color/transparent"
-                    android:paddingStart="16dp"
-                    android:importantForAutofill="no"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/passwordhint"
+                    android:importantForAutofill="no"
                     android:inputType="textPassword"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="4dp"
+                    android:textColorHint="#263238"
                     android:textSize="16sp"
-                    tools:ignore="TextFields" />
+                    tools:ignore="TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/visibility_24px"
                     android:layout_gravity="end"
+                    android:paddingStart="4dp"
                     android:paddingEnd="16dp"
-                    android:id="@+id/eyeVisiblePasBTn"/>
+                    android:id="@+id/eyeVisiblePasBTn"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <TextView
@@ -135,7 +145,8 @@
                 android:textStyle="normal|bold"
                 android:textColor="@color/textColor"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/passwordLinear"/>
+                app:layout_constraintTop_toBottomOf="@id/passwordLinear"
+                tools:ignore="HardcodedText" />
             <LinearLayout
                 android:id="@+id/linearId"
                 android:layout_width="match_parent"
@@ -143,6 +154,7 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@+id/forgetPassword"
+                tools:ignore="HardcodedText"
                 >
 
                 <TextView
@@ -154,21 +166,23 @@
                     android:layout_marginTop="5dp"
                     android:textStyle="italic"
                     android:textColor="@color/textColor"/>
+
                 <TextView
                     android:id="@+id/moveToSignUpBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Signup"
-                    android:textSize="14sp"
                     android:layout_marginTop="5dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/alertColor"/>
+                    android:text="Signup"
+                    android:textColor="#D32F2F"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/nextBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                tools:ignore="HardcodedText,VisualLintButtonSize"
                 android:text="Login"
                 style="@style/Widget.AppCompat.Button"
                 android:textStyle="bold"

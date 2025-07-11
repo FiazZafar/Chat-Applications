@@ -71,22 +71,27 @@
                 android:textColor="@color/textColor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
 
             <EditText
                 android:id="@+id/firstNameEdt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/inputs_bg"
                 android:hint="@string/first_name_hint"
                 android:importantForAutofill="no"
-                android:background="@drawable/inputs_bg"
-                android:layout_marginTop="5dp"
                 android:inputType="textCapSentences"
+                android:minHeight="48dp"
                 android:paddingStart="16dp"
+                android:paddingEnd="4dp"
+                android:textColorHint="#263238"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/firstNameH"
                 app:layout_constraintStart_toStartOf="@+id/firstNameH"
-                app:layout_constraintTop_toBottomOf="@+id/firstNameH" />
+                app:layout_constraintTop_toBottomOf="@+id/firstNameH"
+                tools:ignore="VisualLintTextFieldSize" />
 
             <TextView
                 android:id="@+id/emailH"
@@ -105,16 +110,20 @@
                 android:id="@+id/emailEdt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_hint"
-                android:background="@drawable/inputs_bg"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/inputs_bg"
+                android:hint="@string/email_hint"
                 android:importantForAutofill="no"
                 android:inputType="textEmailSubject"
+                android:minHeight="48dp"
                 android:paddingStart="16dp"
+                android:paddingEnd="4dp"
+                android:textColorHint="#263238"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/emailH"
                 app:layout_constraintStart_toStartOf="@+id/emailH"
-                app:layout_constraintTop_toBottomOf="@+id/emailH" />
+                app:layout_constraintTop_toBottomOf="@+id/emailH"
+                tools:ignore="VisualLintTextFieldSize" />
             <TextView
                 android:id="@+id/passwordH"
                 android:layout_width="0dp"
@@ -138,25 +147,31 @@
                 app:layout_constraintStart_toStartOf="@+id/passwordH"
                 app:layout_constraintTop_toBottomOf="@+id/passwordH"
                 android:orientation="horizontal">
-            <EditText
-                android:id="@+id/passwordEdt"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:importantForAutofill="no"
-                android:hint="@string/passwordhint"
-                android:background="@android:color/transparent"
-                android:paddingStart="16dp"
-                android:layout_weight="1"
-                android:inputType="textPassword"
-                android:textSize="16sp"
-                tools:ignore="TextFields" />
+
+                <EditText
+                    android:id="@+id/passwordEdt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/passwordhint"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="4dp"
+                    android:textColorHint="#263238"
+                    android:textSize="16sp"
+                    tools:ignore="TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/visibility_24px"
                     android:layout_gravity="end"
                     android:paddingEnd="16dp"
-                    android:id="@+id/eyeVisiblePasBTn"/>
+                    android:paddingStart="4dp"
+                    android:id="@+id/eyeVisiblePasBTn"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <TextView
@@ -184,22 +199,28 @@
 
                 <EditText
                     android:id="@+id/confirmPasswordEdt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/confirmPassHint"
-                    android:importantForAutofill="no"
-                    android:paddingStart="16dp"
-                    android:inputType="textPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:textSize="16sp" />
+                    android:hint="@string/confirmPassHint"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="4dp"
+                    android:textColorHint="#263238"
+                    android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/visibility_24px"
                     android:layout_gravity="end"
                     android:paddingEnd="16dp"
-                    android:id="@+id/eyeVisibleconfirmBTn"/>
+                    android:paddingStart="4dp"
+                    android:id="@+id/eyeVisibleconfirmBTn"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <TextView
@@ -223,7 +244,8 @@
                 android:textStyle="normal|bold"
                 android:textColor="@color/alertColor"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLinear"/>
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLinear"
+                tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/nextBtn"
@@ -237,7 +259,8 @@
                 android:textColor="@color/textColor"
                 app:layout_constraintTop_toBottomOf="@+id/randomTxt"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="HardcodedText,VisualLintButtonSize" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
