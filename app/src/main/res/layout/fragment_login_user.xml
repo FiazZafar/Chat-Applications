@@ -107,7 +107,7 @@
                 android:orientation="horizontal">
                 <EditText
                     android:id="@+id/passwordEdt"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:hint="@string/passwordhint"
                     android:background="@android:color/transparent"
