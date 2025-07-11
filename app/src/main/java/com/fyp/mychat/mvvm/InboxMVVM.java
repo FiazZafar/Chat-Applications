@@ -1,6 +1,5 @@
 package com.fyp.mychat.mvvm;
 
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -43,13 +42,7 @@ public class InboxMVVM extends ViewModel {
 
 
     private void setFriendsId(String userId, FirebaseCallbacks<List<String>> friendId) {
-        inboxInterface.fetchFriendsId(userId, id -> {
-            if(id != null) {
-                friendId.onComplete(id);
-            } else {
-                friendId.onComplete(new ArrayList<>());
-            }
-        });
+        inboxInterface.fetchFriendsId(userId, id -> friendId.onComplete(Objects.requireNonNullElseGet(id, ArrayList::new)));
     }
 
     public void setInboxList() {
